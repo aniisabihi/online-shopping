@@ -1,10 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Home = () =>{
-    return(
-       <Link>Home</Link>
-    )
+class Home extends Component {
+
+    render(){
+
+        return(
+            <div className="container">
+                <Link>Home</Link>
+            </div>
+        )
+    }
+
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+    return {
+        items: state.items
+    }
+}
+
+export default connect(mapStateToProps)(Home);
