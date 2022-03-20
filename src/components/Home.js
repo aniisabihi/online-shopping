@@ -4,15 +4,13 @@ import { connect } from 'react-redux';
 
 class Home extends Component {
 
-    render(){
-
-        return(
+    render() {
+        return (
             <div className="container">
                 <Link>Home</Link>
             </div>
         )
     }
-
 }
 
 const mapStateToProps = (state) => {
