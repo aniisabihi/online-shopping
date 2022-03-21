@@ -1,3 +1,6 @@
+.nav-wrapper {
+  background-color: seagreen;
+}
 .box {
   display: flex;
   justify-content: space-between;
@@ -30,7 +33,4 @@
 .collection .collection-item img {
   width: 150px;
   margin-right: 25px;
-}
-.item-desc {
-  align-self: center;
 }
