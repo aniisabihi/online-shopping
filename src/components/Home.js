@@ -28,9 +28,10 @@ function Home() {
     <div className="container">
       <h3 className="center">Our items</h3>
       <div className="box">
-        {setData &&
-          setData.length > 0 &&
-          data.items.map((item) => (
+        {data &&
+          setData &&
+          true &&
+          data.items?.map((item) => (
             <div className="card" key={item.id}>
               <div className="card-image">
                 <b>

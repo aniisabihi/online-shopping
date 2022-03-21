@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter } from "react-router-dom";
+import ErrorBoundary from "./components/ErrorBoundary";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 
@@ -9,7 +10,9 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Navbar />
-          <Home />
+          <ErrorBoundary>
+            <Home />
+          </ErrorBoundary>
         </div>
       </BrowserRouter>
     );
