@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Card from "./Card";
+import Card from "./list_view/Card";
 
 export default function Home() {
   const [data, setData] = useState([]);
