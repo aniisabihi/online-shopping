@@ -5,6 +5,4 @@ import "./index.css";
 import "../node_modules/materialize-css/dist/css/materialize.min.css";
 import "../node_modules/materialize-css/dist/js/materialize.min.js";
 
-const mainPage = document.getElementById("root");
-
-ReactDOM.render(<App />, mainPage);
+ReactDOM.render(<App />, document.getElementById("root"));

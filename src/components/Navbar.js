@@ -5,23 +5,13 @@ const Navbar = () => {
   return (
     <nav className="nav-wrapper">
       <div className="container">
-        <Link to="/" className="brand-logo">
-          Shopping
+        <Link to="/" className="brand-logo" title="Home">
+          Online Shopping
         </Link>
 
-        <ul className="right">
-          <li>
-            <Link to="/">Shop</Link>
-          </li>
-          <li>
-            <Link to="/cart">My cart</Link>
-          </li>
-          <li>
-            <Link to="/cart">
-              <i className="material-icons">shopping_cart</i>
-            </Link>
-          </li>
-        </ul>
+        <Link to="/cart" className="right" title="View cart">
+          <i className="material-icons">shopping_cart</i>
+        </Link>
       </div>
     </nav>
   );
