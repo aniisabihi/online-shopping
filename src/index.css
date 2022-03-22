@@ -1,10 +1,15 @@
 .nav-wrapper {
   background-color: seagreen;
 }
-.container{
+.container {
   height: 100%;
   align-items: center;
   justify-content: space-between;
+}
+.right .material-icons {
+  font-size: 40px;
+  line-height: 65px;
+  height: inherit;
 }
 .box {
   padding: 50px;

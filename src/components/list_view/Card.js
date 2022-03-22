@@ -26,7 +26,7 @@ export default function Card(props) {
           </p>
         </span>
 
-        <span className="btn-small btn-floating green" title="Add to cart">
+        <span className="btn-medium btn-floating green" title="Add to cart">
           <i className="material-icons">add</i>
         </span>
       </div>
