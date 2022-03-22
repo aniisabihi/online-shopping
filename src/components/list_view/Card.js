@@ -9,9 +9,9 @@ export default function Card(props) {
   return (
     <div className="card" key={props.product.id}>
       <div className="card-content">
-        <h6>
+        <h5>
           <b>{props.product.name}</b>
-        </h6>
+        </h5>
       </div>
 
       <div className="card-image">
@@ -20,7 +20,7 @@ export default function Card(props) {
 
       <div className="card-information">
         <span className="price">
-          <p>{props.product.brand}</p>
+          <h6>{props.product.brand}</h6>
           <p>
             <b>Price: {props.product.price} SEK</b>
           </p>
