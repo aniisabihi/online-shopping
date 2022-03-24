@@ -17,11 +17,21 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.detail-item {
+  padding: 50px;
+}
 .material-icons {
   cursor: pointer;
 }
 .card {
   flex: 0 1 calc(50% - 1em);
+}
+.card img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 40%;
+  max-height: 40%;
 }
 .card-information {
   padding: 24px;
@@ -31,11 +41,4 @@
 }
 .card-information .btn-floating {
   margin: 0;
-}
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 60%;
-  max-height: 60%;
 }

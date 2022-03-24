@@ -1,17 +1,18 @@
 import React from "react";
-import ProductImages from "./ProductImages";
+import ProductImages from "../ProductImages";
 
-export default function Card(props) {
+export default function ProductCard(props) {
+  const { product } = props;
   const randomImage =
     ProductImages[Math.floor(Math.random() * ProductImages.length)];
 
   // noinspection JSUnresolvedVariable
   return (
-    <div className="card" key={props.product.id}>
+    <div className="card" key={product.id}>
       <div className="card-content">
-        <h5>
-          <b>{props.product.name}</b>
-        </h5>
+        <h6>
+          <b>{product.name}</b>
+        </h6>
       </div>
 
       <div className="card-image">
@@ -20,9 +21,9 @@ export default function Card(props) {
 
       <div className="card-information">
         <span className="price">
-          <h6>{props.product.brand}</h6>
+          <h6>{product.brand}</h6>
           <p>
-            <b>Price: {props.product.price} SEK</b>
+            <b>Price: {product.price} SEK</b>
           </p>
         </span>
 
