@@ -1,7 +1,8 @@
 // noinspection JSUnresolvedVariable
 
 import { useEffect, useState } from "react";
-import ProductData from "./list_view/ProductData";
+import ProductData from "./ProductData";
+import ErrorBoundary from "../ErrorBoundary";
 
 const FetchData = ({ productView }) => {
   const [data, setData] = useState([]);
@@ -37,7 +38,11 @@ const FetchData = ({ productView }) => {
 
   return (
     <div>
-      {data && <ProductData product={data} isProductChosen={productView} />}
+      {data && (
+        <ErrorBoundary>
+          <ProductData product={data} isProductChosen={productView} />
+        </ErrorBoundary>
+      )}
       {isError && <div>Error fetching data.</div>}
     </div>
   );

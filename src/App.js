@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
+import Navbar from "./components/main_view/Navbar";
+import Home from "./components/main_view/Home";
 
 class App extends Component {
   render() {

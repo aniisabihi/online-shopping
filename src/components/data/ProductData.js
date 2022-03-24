@@ -1,5 +1,6 @@
-import ProductCard from "./ProductCard";
-import ProductDetail from "../details_view/ProductDetail";
+import ProductCard from "../list_view/ProductCard";
+import ProductDetail from "../detail_view/ProductDetail";
+import ErrorBoundary from "../ErrorBoundary";
 
 const ProductData = ({ product, isProductChosen }) => {
   if (isProductChosen) {
@@ -11,7 +12,9 @@ const ProductData = ({ product, isProductChosen }) => {
     return (
       <div className="detail-item">
         {chosenProduct && (
-          <ProductDetail key={chosenProduct.id} product={chosenProduct} />
+          <ErrorBoundary>
+            <ProductDetail key={chosenProduct.id} product={chosenProduct} />
+          </ErrorBoundary>
         )}
       </div>
     );
@@ -20,7 +23,9 @@ const ProductData = ({ product, isProductChosen }) => {
     <div className="box">
       {product &&
         product.items?.map((item) => (
-          <ProductCard key={item.id} product={item} />
+          <ErrorBoundary>
+            <ProductCard key={item.id} product={item} />
+          </ErrorBoundary>
         ))}
     </div>
   );

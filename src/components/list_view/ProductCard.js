@@ -1,5 +1,5 @@
 import React from "react";
-import ProductImages from "../ProductImages";
+import ProductImages from "../data/ProductImages";
 
 export default function ProductCard(props) {
   const { product } = props;

@@ -1,5 +1,5 @@
 import React from "react";
-import ProductImages from "../ProductImages";
+import ProductImages from "../data/ProductImages";
 
 export default function ProductDetail(props) {
   const { product } = props;
