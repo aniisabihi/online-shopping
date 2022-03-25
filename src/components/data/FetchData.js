@@ -47,4 +47,5 @@ const FetchData = ({ productView }) => {
     </div>
   );
 };
+
 export default FetchData;

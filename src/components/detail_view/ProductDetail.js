@@ -14,6 +14,7 @@ export default function ProductDetail() {
       <Link to="/" className="return">
         <i className="material-icons">arrow_back</i>
       </Link>
+
       <div id="product" className="card" key={product.id}>
         <div className="card-content">
           <h5>

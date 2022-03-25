@@ -39,10 +39,10 @@
   cursor: pointer;
 }
 .card {
-  cursor: pointer;
   flex: 0 1 calc(50% - 1em);
 }
 #card img {
+  cursor: pointer;
   display: block;
   margin-left: auto;
   margin-right: auto;

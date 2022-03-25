@@ -6,16 +6,22 @@ import Home from "./components/main_view/Home";
 export default function App() {
   return (
     <div className="App">
-      <ErrorBoundary>
-        <Navbar />
-      </ErrorBoundary>
+      <nav>
+        <ErrorBoundary>
+          <Navbar />
+        </ErrorBoundary>
+      </nav>
 
       <main>
-        <Home />
+        <ErrorBoundary>
+          <Home />
+        </ErrorBoundary>
       </main>
 
       <footer id="footer" className="page-footer">
-        <p>A simple online shopping application</p>
+        <ErrorBoundary>
+          <p>A simple online shopping application</p>
+        </ErrorBoundary>
       </footer>
     </div>
   );

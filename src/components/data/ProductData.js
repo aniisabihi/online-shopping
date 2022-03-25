@@ -6,9 +6,11 @@ const ProductData = ({ product, isProductChosen }) => {
   if (isProductChosen) {
     const productID = 1;
     const chosenProduct = product.items?.find((item) => item.id === productID);
+
     if (!chosenProduct) {
       return <div> Product Not Found</div>;
     }
+
     return (
       <div className="detail-item">
         {chosenProduct && (
@@ -19,6 +21,7 @@ const ProductData = ({ product, isProductChosen }) => {
       </div>
     );
   }
+
   return (
     <div className="box">
       {product &&
@@ -30,4 +33,5 @@ const ProductData = ({ product, isProductChosen }) => {
     </div>
   );
 };
+
 export default ProductData;
