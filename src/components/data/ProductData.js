@@ -13,7 +13,7 @@ const ProductData = ({ product, isProductChosen }) => {
       <div className="detail-item">
         {chosenProduct && (
           <ErrorBoundary>
-            <ProductDetail key={chosenProduct.id} product={chosenProduct} />
+            <ProductDetail key={chosenProduct.id} state={{ chosenProduct }} />
           </ErrorBoundary>
         )}
       </div>

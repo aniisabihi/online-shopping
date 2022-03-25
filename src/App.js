@@ -1,22 +1,22 @@
-import React, { Component } from "react";
-import { BrowserRouter } from "react-router-dom";
+import React from "react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Navbar from "./components/main_view/Navbar";
 import Home from "./components/main_view/Home";
 
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <div className="App">
-          <Navbar />
-          <ErrorBoundary>
-            <Home />
-          </ErrorBoundary>
-        </div>
-      </BrowserRouter>
-    );
-  }
-}
+export default function App() {
+  return (
+    <div className="App">
+      <ErrorBoundary>
+        <Navbar />
+      </ErrorBoundary>
 
-export default App;
+      <main>
+        <Home />
+      </main>
+
+      <footer id="footer" className="page-footer">
+        <p>A simple online shopping application</p>
+      </footer>
+    </div>
+  );
+}
