@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="container">
       <ErrorBoundary>
-        <FetchData productView={false} />
+        <FetchData />
       </ErrorBoundary>
     </div>
   );

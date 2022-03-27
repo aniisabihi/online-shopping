@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import ProductData from "./ProductData";
 import ErrorBoundary from "../ErrorBoundary";
 
-const FetchData = ({ productView }) => {
+const FetchData = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -40,7 +40,7 @@ const FetchData = ({ productView }) => {
     <div>
       {data && (
         <ErrorBoundary>
-          <ProductData product={data} isProductChosen={productView} />
+          <ProductData product={data} />
         </ErrorBoundary>
       )}
       {isError && <div>Error fetching data.</div>}
