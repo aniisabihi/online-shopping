@@ -19,7 +19,7 @@ class ErrorBoundary extends Component {
       // Error path
       return (
         <div className="box">
-          <h2>Something went wrong..</h2>
+          <h1>Something went wrong..</h1>
           <div className="card">
             <details style={{ whiteSpace: "pre-wrap" }}>
               {this.state.error && this.state.error.toString()}

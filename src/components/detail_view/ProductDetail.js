@@ -25,7 +25,6 @@ export default function ProductDetail() {
             <img src={randomImage} alt="product" />
           </div>
         </div>
-
         <div className="card-information">
           <span className="price">
             <h6>{product.brand}</h6>
