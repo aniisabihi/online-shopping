@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ErrorBoundary from "../error_handling/ErrorBoundary";
-import { Quantity } from "../../features/quantity/Quantity";
+import { Quantity } from "../../slices/Quantity";
 
 export default function Cart() {
   // noinspection JSUnresolvedVariable

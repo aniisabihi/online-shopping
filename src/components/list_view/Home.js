@@ -1,12 +1,12 @@
 import React from "react";
-import FetchData from "../app_data/FetchData";
 import ErrorBoundary from "../error_handling/ErrorBoundary";
+import ProductData from "../app_data/ProductData";
 
 export default function Home() {
   return (
     <div className="container">
       <ErrorBoundary>
-        <FetchData />
+        <ProductData />
       </ErrorBoundary>
     </div>
   );

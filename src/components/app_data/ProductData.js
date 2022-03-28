@@ -1,11 +1,13 @@
 import ProductCard from "../list_view/ProductCard";
 import ErrorBoundary from "../error_handling/ErrorBoundary";
 
-const ProductData = ({ product }) => {
+const data = require("../../data.json");
+
+const ProductData = () => {
   return (
     <div className="box">
-      {product &&
-        product.items?.map((item) => (
+      {data &&
+        data.items?.map((item) => (
           <ErrorBoundary>
             <ProductCard key={item.id} product={item} />
           </ErrorBoundary>

@@ -2,7 +2,7 @@ import React from "react";
 import ProductImages from "../app_data/ProductImages";
 import { Link, useLocation } from "react-router-dom";
 import { LoremIpsum } from "react-lorem-ipsum";
-import { increment } from "../../features/quantity/quantitySlice";
+import { increment } from "../../slices/quantitySlice";
 import { useDispatch } from "react-redux";
 
 export default function ProductDetail() {
