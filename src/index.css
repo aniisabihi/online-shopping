@@ -1,5 +1,11 @@
 .nav-wrapper {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 1%;
+  width: 100%;
   background-color: darkseagreen;
+  letter-spacing: 5px;
 }
 #footer {
   position: fixed;
@@ -9,10 +15,19 @@
   width: 100%;
   padding-top: 0;
   padding-bottom: 50px;
-  background-color: darkseagreen;
-  color: white;
   text-align: center;
   font-weight: bold;
+  letter-spacing: 4px;
+  color: white;
+  background-color: darkseagreen;
+}
+#footer a {
+  color: white;
+  text-decoration: underline;
+}
+#footer a:hover {
+  color: darkgreen;
+  text-decoration: underline;
 }
 .container {
   height: 100%;

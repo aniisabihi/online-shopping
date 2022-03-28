@@ -1,3 +1,6 @@
+# Icons
+This project uses icons made by [Freepik](https://www.flaticon.com/authors/freepik).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
