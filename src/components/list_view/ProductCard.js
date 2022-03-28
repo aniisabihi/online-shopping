@@ -1,5 +1,5 @@
 import React from "react";
-import ProductImages from "../data/ProductImages";
+import ProductImages from "../app_data/ProductImages";
 import { Link } from "react-router-dom";
 
 export default function ProductCard(props) {

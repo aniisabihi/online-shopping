@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ProductData from "./ProductData";
-import ErrorBoundary from "../ErrorBoundary";
+import ErrorBoundary from "../error_handling/ErrorBoundary";
 
 const FetchData = () => {
   const [data, setData] = useState([]);

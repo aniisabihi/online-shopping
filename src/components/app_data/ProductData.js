@@ -1,5 +1,5 @@
 import ProductCard from "../list_view/ProductCard";
-import ErrorBoundary from "../ErrorBoundary";
+import ErrorBoundary from "../error_handling/ErrorBoundary";
 
 const ProductData = ({ product }) => {
   return (

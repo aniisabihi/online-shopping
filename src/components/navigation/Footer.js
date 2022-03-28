@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer id="footer" className="page-footer">
+    <footer id="footer" className="page-footer waves-effect waves-light">
       <p>
         A simple online shopping application &ensp;- &ensp;
         <a

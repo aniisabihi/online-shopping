@@ -5,11 +5,21 @@ const Navbar = () => {
   return (
     <nav className="nav-wrapper">
       <div className="container">
-        <Link to="/" className="brand-logo" title="Home">
+        <Link
+          to="/"
+          id="home-button"
+          className="brand-logo waves-effect waves-light"
+          title="Home"
+        >
           Online Shopping
         </Link>
 
-        <Link to="/cart" className="right" title="View cart">
+        <Link
+          to="/cart"
+          id="cart-button"
+          className="right waves-effect waves-light"
+          title="View cart"
+        >
           <i className="material-icons">shopping_cart</i>
         </Link>
       </div>

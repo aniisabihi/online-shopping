@@ -1,6 +1,6 @@
 import React from "react";
-import FetchData from "../data/FetchData";
-import ErrorBoundary from "../ErrorBoundary";
+import FetchData from "../app_data/FetchData";
+import ErrorBoundary from "../error_handling/ErrorBoundary";
 
 export default function Home() {
   return (
