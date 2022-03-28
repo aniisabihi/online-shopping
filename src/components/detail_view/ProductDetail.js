@@ -2,8 +2,11 @@ import React from "react";
 import ProductImages from "../app_data/ProductImages";
 import { Link, useLocation } from "react-router-dom";
 import { LoremIpsum } from "react-lorem-ipsum";
+import { increment } from "../../features/quantity/quantitySlice";
+import { useDispatch } from "react-redux";
 
 export default function ProductDetail() {
+  const dispatch = useDispatch();
   const location = useLocation();
   const { product } = location.state;
   const randomImage =
@@ -26,32 +29,38 @@ export default function ProductDetail() {
         </div>
 
         <div id="product-information" className="card-information">
-          <h5>
-            <b>{product.name}</b>
-          </h5>
-
-          <h6>{product.brand}</h6>
-
-          <LoremIpsum avgSentencesPerParagraph={6} />
-
-          <span className="price">
-            <p>
-              <b>Price: {product.price} SEK</b>
-            </p>
-          </span>
           <div className="row">
-            <div className="col left">
-              <p>Options</p> <p>Options</p>
-            </div>
-            <div className="col right">
-              <button
-                id="add-button"
-                className="btn-large waves-effect waves-light waves-green"
-                title="Add to cart"
-              >
-                Add to cart
-              </button>
-            </div>
+            <h5>
+              <b>{product.name}</b>
+            </h5>
+
+            <h6>{product.brand}</h6>
+
+            <LoremIpsum avgSentencesPerParagraph={6} />
+
+            <span className="price">
+              <p>
+                <b>Price: {product.price} SEK</b>
+              </p>
+            </span>
+          </div>
+
+          <div className="row">
+            <div className="col">Options</div>
+            <div className="col">Options</div>
+            <div className="col">Options</div>
+          </div>
+
+          <div className="row right">
+            <button
+              id="add-button"
+              title="Add to cart"
+              aria-label="Add product to cart"
+              onClick={() => dispatch(increment(product.quantity))}
+              className="btn-large waves-effect waves-light waves-green"
+            >
+              Add to cart
+            </button>
           </div>
         </div>
       </div>

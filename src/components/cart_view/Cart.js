@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ErrorBoundary from "../error_handling/ErrorBoundary";
+import { Quantity } from "../../features/quantity/Quantity";
 
 export default function Cart() {
   // noinspection JSUnresolvedVariable
+
   return (
     <div className="detail-item">
       <Link to="/" className="return waves-effect waves-light">
@@ -22,17 +25,11 @@ export default function Cart() {
           <h6>Brand</h6>
 
           <div className="row">
-            <div className="col left">
-              <p>Options</p> <p>Options</p>
-            </div>
+            <div className="col left">left</div>
             <div className="col right">
-              <button
-                id="remove-button"
-                className="btn-large waves-effect waves-light waves-green"
-                title="Remove item from cart"
-              >
-                Remove item
-              </button>
+              <ErrorBoundary>
+                <Quantity />
+              </ErrorBoundary>
             </div>
           </div>
         </div>
