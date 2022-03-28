@@ -18,7 +18,7 @@ export default function ProductCard(props) {
 
       <Link to="/product" state={{ product }}>
         <div className="card-image" title="Click to view product">
-          <img src={randomImage} alt="product" />
+          <img src={randomImage} alt={product.name} />
         </div>
       </Link>
 

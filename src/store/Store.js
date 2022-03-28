@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import quantityReducer from "../slices/quantitySlice";
+import { getTotals } from "./reducers/slices/cartSlice";
+import { reducers } from "./reducers/Reducers";
 
-export const store = configureStore({
-  reducer: {
-    quantity: quantityReducer,
-  },
-});
+const store = configureStore({ reducer: reducers });
+
+store.dispatch(getTotals());
+
+export default store;

@@ -1,7 +1,6 @@
 import ProductCard from "../list_view/ProductCard";
 import ErrorBoundary from "../error_handling/ErrorBoundary";
-
-const data = require("../../data.json");
+import data from "./../../store/reducers/Reducers";
 
 const ProductData = () => {
   return (

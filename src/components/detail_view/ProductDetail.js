@@ -1,16 +1,24 @@
 import React from "react";
-import ProductImages from "../app_data/ProductImages";
-import { Link, useLocation } from "react-router-dom";
-import { LoremIpsum } from "react-lorem-ipsum";
-import { increment } from "../../slices/quantitySlice";
+import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
+import { LoremIpsum } from "react-lorem-ipsum";
+import ProductImages from "../app_data/ProductImages";
+import { addToCart } from "../../store/reducers/slices/cartSlice";
 
 export default function ProductDetail() {
-  const dispatch = useDispatch();
   const location = useLocation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const { product } = location.state;
   const randomImage =
     ProductImages[Math.floor(Math.random() * ProductImages.length)];
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    navigate("/cart");
+  };
 
   // noinspection JSUnresolvedVariable
   return (
@@ -56,7 +64,7 @@ export default function ProductDetail() {
               id="add-button"
               title="Add to cart"
               aria-label="Add product to cart"
-              onClick={() => dispatch(increment(product.quantity))}
+              onClick={() => handleAddToCart(product)}
               className="btn-large waves-effect waves-light waves-green"
             >
               Add to cart
