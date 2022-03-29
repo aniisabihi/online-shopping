@@ -6,6 +6,7 @@ import App from "./App";
 import "./index.css";
 import "../node_modules/materialize-css/dist/css/materialize.min.css";
 import "../node_modules/materialize-css/dist/js/materialize.min.js";
+import "react-toastify/dist/ReactToastify.css";
 
 const rootElement = document.getElementById("root");
 
