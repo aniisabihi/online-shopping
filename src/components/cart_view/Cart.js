@@ -10,6 +10,7 @@ import {
   getTotals,
   removeFromCart,
 } from "../../store/reducers/slices/cartSlice";
+import { ToastContainer } from "react-toastify";
 
 export default function Cart() {
   const cart = useSelector((state) => state.cart);
@@ -98,6 +99,7 @@ export default function Cart() {
                   </div>
                 </div>
               </div>
+              <ToastContainer />
             </div>
           )}
         </div>
