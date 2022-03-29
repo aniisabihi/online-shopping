@@ -43,8 +43,8 @@
   height: inherit;
 }
 .box {
-  padding-top: 50px;
-  padding-bottom: 100px;
+  padding-top: 20px;
+  padding-bottom: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -74,6 +74,9 @@
 }
 .card-information .btn-floating {
   margin: 0;
+}
+.not-available {
+  color: red;
 }
 #product {
   display: flex;

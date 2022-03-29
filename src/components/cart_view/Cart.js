@@ -61,6 +61,9 @@ export default function Cart() {
                       <div className="cart-product">
                         <div>
                           <h5>{cartItem.name}</h5>
+                          <p>Color: {cartItem.color}</p>
+                          <p>Power: {cartItem.power}</p>
+                          <p>Storage: {cartItem.storage}</p>
                           <button
                             onClick={() => handleRemoveFromCart(cartItem)}
                           >
@@ -79,7 +82,7 @@ export default function Cart() {
                         </button>
                       </div>
                       <div className="cart-product-total-price">
-                        {cartItem.price * cartItem.cartQuantity}
+                        {cartItem.price * cartItem.cartQuantity} SEK
                       </div>
                     </div>
                   ))}
@@ -91,7 +94,7 @@ export default function Cart() {
                 <div className="cart-checkout">
                   <div className="subtotal">
                     <span>Total</span>
-                    <span className="amount">{cart.cartTotalAmount}</span>
+                    <span className="amount">{cart.cartTotalAmount} SEK</span>
                   </div>
                 </div>
               </div>

@@ -23,12 +23,19 @@ export default function ProductCard(props) {
       </Link>
 
       <div className="card-information">
-        <span className="price">
-          <h6>{product.brand}</h6>
-          <p>
-            <b>Price: {product.price} SEK</b>
-          </p>
-        </span>
+        <div className="col">
+          <span className="price">
+            <h6>{product.brand}</h6>
+            <p>
+              <b>Price: {product.price} SEK</b>
+            </p>
+          </span>
+        </div>
+        {!product.available && (
+          <div className="col">
+            <h6 className="not-available">Out of stock!</h6>
+          </div>
+        )}
       </div>
     </div>
   );

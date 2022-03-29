@@ -4,7 +4,7 @@ import ProductData from "../app_data/ProductData";
 
 export default function Home() {
   return (
-    <div className="container">
+    <div className="cart-container">
       <ErrorBoundary>
         <ProductData />
       </ErrorBoundary>
