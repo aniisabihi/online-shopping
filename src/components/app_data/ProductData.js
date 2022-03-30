@@ -1,3 +1,4 @@
+import React from "react";
 import ProductCard from "../list_view/ProductCard";
 import ErrorBoundary from "../error_handling/ErrorBoundary";
 import data from "./../../store/reducers/Reducers";

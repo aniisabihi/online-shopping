@@ -1,3 +1,4 @@
+// Icons created by Freepik - Flaticon - https://www.flaticon.com/authors/freepik
 const ProductImages = [
   require("./img/computer-monitor.png"),
   require("./img/energy.png"),

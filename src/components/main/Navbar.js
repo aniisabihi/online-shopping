@@ -4,35 +4,40 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const Navbar = () => {
+export default function Navbar() {
   const { cartTotalQuantity } = useSelector((state) => state.cart);
 
   return (
     <nav className="nav-wrapper">
       <div className="container">
-        <Link
-          to="/"
-          id="home-button"
-          className="brand-logo waves-effect waves-light"
-          title="Home"
-        >
-          Online Shopping
-        </Link>
-
-        <div className="right">
+        <div className="col left">
           <Link
-            to="/cart"
-            id="cart-button"
-            className="right waves-effect waves-light"
-            title="View cart"
+            to="/"
+            id="home-button"
+            className="brand-logo waves-effect waves-light"
+            title="Home"
           >
-            <i className="material-icons">shopping_cart</i>
+            Online Shopping
           </Link>
-          <span className="cart-badge">{cartTotalQuantity}</span>
+        </div>
+
+        <div className="row right">
+          <div className="col">
+            <span id="cart-badge">Items in cart: {cartTotalQuantity}</span>
+          </div>
+
+          <div className="col">
+            <Link
+              to="/cart"
+              id="cart-button"
+              className="waves-effect waves-light"
+              title="View cart"
+            >
+              <i className="material-icons">shopping_cart</i>
+            </Link>
+          </div>
         </div>
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}

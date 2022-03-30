@@ -1,105 +1,127 @@
 // noinspection JSUnresolvedVariable
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
-//import { useLocation } from "react-router";
 
 export const ProductOptions = (props) => {
-  //const location = useLocation();
-  //const { product } = location.state;
-  const { options } = props;
-  const [color, setColor] = React.useState();
-  const [power, setPower] = React.useState();
-  const [storage, setStorage] = React.useState();
-  const [quantity, setQuantity] = React.useState();
-  //let [optionIndex, setOptionIndex] = React.useState(product.index);
+  let { updateColor, updatePower, updateStorage, updateQuantity } = props;
+  const productOptions = [];
+  props.options.map((option) => productOptions.push(option));
 
-  // useEffect(() => {
-  //
-  //   options[optionIndex].power = setPower;
-  //   options[optionIndex].storage = setStorage;
-  //   options[optionIndex].quantity = -setQuantity;
-  // }, [optionIndex, options]);
-
-  const colorOptions = options
+  const colorOptions = productOptions
     .map((option) => option.color)
     .filter((v, i, a) => a.indexOf(v) === i)
     .map((color) => ({ label: color, value: color }));
 
-  let powerOptions = options
-    .filter((option) => color && option.color === color.value && option.power)
-    .map((option) => option.power)
-    .filter((v, i, a) => a.indexOf(v) === i)
-    .map((power, index) => ({
-      label: power[index],
-      value: power[index],
-    }));
+  const [powerOptions, setPowerOptions] = useState([]);
+  const [storageOptions, setStorageOptions] = useState([]);
+  const [quantityNumber, setQuantityNumber] = useState([]);
 
-  const storageOptions = options
-    .filter((option) => color && option.color === color.value && option.storage)
-    .map((option) => option.storage)
-    .filter((v, i, a) => a.indexOf(v) === i)
-    .map((storage, index) => ({
-      label: storage[index],
-      value: storage[index],
-    }));
+  function checkSubOptions(chosenColor) {
+    updateColorState(chosenColor);
 
-  const quantityObject = options
-    .filter(
-      (option) => color && option.color === color.value && option.quantity
-    )
-    .map((option) => option.quantity)
-    .filter((v, i, a) => a.indexOf(v) === i)
-    .map((quantity) => ({ label: quantity, value: quantity }));
+    setPowerOptions(
+      productOptions
+        .filter(
+          (option) =>
+            chosenColor && option.color === chosenColor.value && option.power
+        ) //get the power values matching chosen color
+        .map((option) => option.power)
+        .filter((v, i, a) => a.indexOf(v) === i)
+        .map((power, index) => ({
+          label: power[index],
+          value: power[index],
+        }))
+    );
 
-  let quantityValue = quantityObject.length > 0 ? quantityObject[0].value : 0;
+    setStorageOptions(
+      productOptions
+        .filter(
+          (option) =>
+            chosenColor && option.color === chosenColor.value && option.storage
+        )
+        .map((option) => option.storage)
+        .filter((v, i, a) => a.indexOf(v) === i)
+        .map((storage, index) => ({
+          label: storage[index],
+          value: storage[index],
+        }))
+    );
+
+    setQuantityNumber(
+      productOptions
+        .filter(
+          (option) =>
+            chosenColor && option.color === chosenColor.value && option.quantity
+        )
+        .map((option) => option.quantity)
+        .filter((v, i, a) => a.indexOf(v) === i)
+        .map((quantity) => ({ label: quantity, value: quantity }))
+    );
+  }
+
+  useEffect(() => {
+    setPowerOptions(powerOptions);
+  }, [powerOptions]);
+
+  useEffect(() => {
+    setStorageOptions(storageOptions);
+  }, [storageOptions]);
+
+  useEffect(() => {
+    setQuantityNumber(quantityNumber);
+  }, [quantityNumber]);
+
+  // Create options for dropdown that ranges between 0 to products quantity
+  let quantityValue = quantityNumber.length > 0 ? quantityNumber[0].value : 0;
   let quantityOptions = Array.from(Array(quantityValue + 1).keys());
   quantityOptions = quantityOptions.map((quantity) => ({
     label: quantity,
     value: quantity,
   }));
 
-  /*let handleChange = () => {
-    setColor(color);
-    optionIndex = options.findIndex((color) => color.value === { color });
-    setOptionIndex(optionIndex);
-    console.log(optionIndex);
-  };*/
+  function updateColorState(state) {
+    updateColor(state);
+  }
+
+  function updatePowerState(state) {
+    updatePower(state);
+  }
+
+  function updateStorageState(state) {
+    updateStorage(state);
+  }
+
+  function updateQuantityState(state) {
+    updateQuantity(state);
+  }
 
   return (
     <div>
       <div className="col">
         <h6>Color:</h6>
-        <Select value={color} onChange={setColor} options={colorOptions} />
+        <Select onChange={checkSubOptions} options={colorOptions} />
       </div>
 
       {powerOptions.length > 0 && (
         <div className="col">
           <h6>Power:</h6>
-          <Select value={power} onChange={setPower} options={powerOptions} />
+          <Select onChange={updatePowerState} options={powerOptions} />
         </div>
       )}
 
       {storageOptions.length > 0 && (
         <div className="col">
           <h6>Storage:</h6>
-          <Select
-            value={storage}
-            onChange={setStorage}
-            options={storageOptions}
-          />
+          <Select onChange={updateStorageState} options={storageOptions} />
         </div>
       )}
 
-      {(powerOptions.length > 0 || storageOptions.length) &&
+      {(powerOptions.length > 0 || storageOptions.length > 0) &&
         quantityOptions.length > 0 && (
           <div className="col">
             <h6>Quantity: </h6>
-            <Select
-              value={quantity}
-              onChange={setQuantity}
-              options={quantityOptions}
-            />
+            <Select onChange={updateQuantityState} options={quantityOptions} />
           </div>
         )}
     </div>

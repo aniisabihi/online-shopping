@@ -1,8 +1,13 @@
-import { render, screen } from "@testing-library/react";
+import React from "react";
+import { shallow } from "enzyme";
 import App from "./App";
 
-test("renders icons credit link", () => {
-  render(<App />);
-  const linkElement = screen.getByText(/Icons created by Freepik - Flaticon/i);
-  expect(linkElement).toBeInTheDocument();
+const AppComponent = <App />;
+let app = shallow(AppComponent);
+
+/* RENDER COMPONENT */
+describe("Render App", () => {
+  it("should render the App Component accordingly", () => {
+    expect(app).toMatchSnapshot();
+  });
 });

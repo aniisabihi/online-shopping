@@ -3,35 +3,35 @@ import ProductImages from "../app_data/ProductImages";
 import { Link } from "react-router-dom";
 
 export default function ProductCard(props) {
-  const { product } = props;
+  const { name, brand, price, available } = props.product;
   const randomImage =
     ProductImages[Math.floor(Math.random() * ProductImages.length)];
 
   // noinspection JSUnresolvedVariable
   return (
-    <div id="card" className="card" key={product.id}>
+    <div id="card" className="card" key={props.key}>
       <div className="card-content">
         <h6>
-          <b>{product.name}</b>
+          <b>{name}</b>
         </h6>
       </div>
 
-      <Link to="/product" state={{ product }}>
+      <Link to={`/product/${props.key}`} key={props.key} state={props.product}>
         <div className="card-image" title="Click to view product">
-          <img src={randomImage} alt={product.name} />
+          <img src={randomImage} alt={name} />
         </div>
       </Link>
 
       <div className="card-information">
         <div className="col">
           <span className="price">
-            <h6>{product.brand}</h6>
+            <h6>{brand}</h6>
             <p>
-              <b>Price: {product.price} SEK</b>
+              <b>Price: {price} SEK</b>
             </p>
           </span>
         </div>
-        {!product.available && (
+        {!available && (
           <div className="col">
             <h6 className="not-available">Out of stock!</h6>
           </div>

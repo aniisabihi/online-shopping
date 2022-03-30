@@ -118,14 +118,10 @@
   color: darkgreen;
 }
 /* Cart */
-.cart-badge {
-  color: darkred;
-  font-size: 14px;
+#cart-badge {
+  color: darkgreen;
   font-weight: bolder;
-  position: absolute;
-  right: 15.5vw;
-  bottom: 3vh;
-  z-index: 1;
+  font-size: 14px;
 }
 .cart-container {
   min-width: 100%;

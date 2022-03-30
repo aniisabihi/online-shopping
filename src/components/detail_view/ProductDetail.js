@@ -1,33 +1,39 @@
 // noinspection JSUnresolvedVariable
 
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useLocation, useNavigate } from "react-router";
-import { useDispatch } from "react-redux";
-import { LoremIpsum } from "react-lorem-ipsum";
+import { useLocation } from "react-router";
 import ProductImages from "../app_data/ProductImages";
-import { addToCart } from "../../store/reducers/slices/cartSlice";
 import { ProductOptions } from "./ProductOptions";
 import ErrorBoundary from "../error_handling/ErrorBoundary";
+import { ToastContainer } from "react-toastify";
+import ProductToCart from "./ProductToCart";
 
 export default function ProductDetail() {
+  const [chosenColor, setColor] = useState("");
+  const [chosenPower, setPower] = useState(0);
+  const [chosenStorage, setStorage] = useState(0);
+  const [chosenQuantity, setQuantity] = useState(0);
+
+  const randomImage = ProductImages[1];
   const location = useLocation();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const product = location.state;
+  const { id, name, brand, weight, price, available, options } = product;
 
-  const { product } = location.state;
-  const randomImage =
-    ProductImages[Math.floor(Math.random() * ProductImages.length)];
+  const updateColor = (c) => {
+    setColor(c.value);
+  };
 
-  const handleAddToCart = (product) => {
-    if (product.available) {
-      // && product.options[product.index].quantity !== 0
-      dispatch(addToCart(product));
-      /*console.log(product.options[product.index].quantity);
-      product.options[product.index].quantity--;
-      console.log(product.options[product.index].quantity);*/
-      navigate("/cart");
-    }
+  const updatePower = (p) => {
+    setPower(p.value);
+  };
+
+  const updateStorage = (s) => {
+    setStorage(s.value);
+  };
+
+  const updateQuantity = (q) => {
+    setQuantity(q.value);
   };
 
   return (
@@ -38,7 +44,7 @@ export default function ProductDetail() {
         </i>
       </Link>
 
-      <div id="product" className="card" key={product.id}>
+      <div id="product" className="card" key={id}>
         <div className="card-content">
           <div id="product-img" className="card-image">
             <img src={randomImage} alt="product" />
@@ -49,27 +55,36 @@ export default function ProductDetail() {
           <div className="row">
             <div className="col">
               <h5>
-                <b>{product.name}</b>
+                <b>{name}</b>
               </h5>
             </div>
           </div>
 
           <div className="row">
             <div className="col">
-              <h6>{product.brand}</h6>
+              <h6>{brand}</h6>
             </div>
           </div>
 
           <div className="row">
             <div className="col">
-              <LoremIpsum avgSentencesPerParagraph={6} />
+              {/*<LoremIpsum avgSentencesPerParagraph={6} />*/}
+              <p>
+                Lorem ipsum odor amet, consectetuer adipiscing elit. Orci in
+                primis aliquet lacus aenean dui quisque. Accumsan lobortis nisl
+                mauris fringilla proin tellus aptent tempus. Nostra lobortis
+                blandit lectus ante nullam maximus iaculis tellus. Litora
+                himenaeos eros nibh taciti venenatis nisl vivamus lectus
+                eleifend. Semper congue iaculis, diam quisque vulputate nullam.
+                Aptent lorem mus senectus aptent aliquam.
+              </p>
             </div>
           </div>
 
           <div className="row">
             <div className="col">
               <b>Available: </b>
-              {product.available ? (
+              {available ? (
                 <p>In stock!</p>
               ) : (
                 <p className="not-available">Out of stock!</p>
@@ -78,36 +93,42 @@ export default function ProductDetail() {
 
             <div className="col">
               <b>Weight:</b>
-              <p>{product.weight}</p>
+              <p>{weight}</p>
             </div>
 
             <div className="col">
               <span className="price">
                 <b>Price:</b>
-                <p>{product.price} SEK</p>
+                <p>{price} SEK</p>
               </span>
             </div>
           </div>
 
           <div className="row">
             <ErrorBoundary>
-              <ProductOptions options={product.options} />
+              <ProductOptions
+                options={options}
+                updateColor={updateColor}
+                updatePower={updatePower}
+                updateStorage={updateStorage}
+                updateQuantity={updateQuantity}
+              />
             </ErrorBoundary>
           </div>
 
           <div className="row right">
-            <button
-              disabled={!product.available}
-              id="add-button"
-              title="Add to cart"
-              aria-label="Add product to cart"
-              onClick={() => handleAddToCart(product)}
-              className="btn-large waves-effect waves-light waves-green"
-            >
-              <span>Add to cart</span>
-            </button>
+            <ErrorBoundary>
+              <ProductToCart
+                product={product}
+                color={chosenColor}
+                power={chosenPower}
+                storage={chosenStorage}
+                quantity={chosenQuantity}
+              />
+            </ErrorBoundary>
           </div>
         </div>
+        <ToastContainer />
       </div>
     </div>
   );

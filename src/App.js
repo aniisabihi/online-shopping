@@ -19,11 +19,13 @@ export default function App() {
         </nav>
 
         <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/product" element={<ProductDetail />} />
-            <Route path="/cart" element={<Cart />} />
-          </Routes>
+          <ErrorBoundary>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/product/:id" element={<ProductDetail />} />
+              <Route path="/cart" element={<Cart />} />
+            </Routes>
+          </ErrorBoundary>
         </main>
 
         <footer>
