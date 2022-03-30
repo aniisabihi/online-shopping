@@ -68,7 +68,6 @@ export default function ProductDetail() {
 
           <div className="row">
             <div className="col">
-              {/*<LoremIpsum avgSentencesPerParagraph={6} />*/}
               <p>
                 Lorem ipsum odor amet, consectetuer adipiscing elit. Orci in
                 primis aliquet lacus aenean dui quisque. Accumsan lobortis nisl
