@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
-import ErrorBoundary from "./components/error_handling/ErrorBoundary";
-import Home from "./components/list_view/Home";
-import Navbar from "./components/main/Navbar";
-import Footer from "./components/main/Footer";
-import ProductDetail from "./components/detail_view/ProductDetail";
-import Cart from "./components/cart_view/Cart";
+import ErrorBoundary from "./components/ErrorHandling/ErrorBoundary";
+import Home from "./components/ListView/Home";
+import Navbar from "./components/Navigation/Navbar";
+import Footer from "./components/Navigation/Footer";
+import ProductDetail from "./components/DetailView/ProductDetail";
+import Cart from "./components/CartView/Cart";
 
 export default function App() {
   return (

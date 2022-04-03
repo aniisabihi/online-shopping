@@ -1,5 +1,5 @@
 import React from "react";
-import ProductImages from "../app_data/ProductImages";
+import ProductImages from "../ProductData/ProductImages";
 import { Link } from "react-router-dom";
 
 export default function ProductCard(props) {
@@ -9,14 +9,14 @@ export default function ProductCard(props) {
 
   // noinspection JSUnresolvedVariable
   return (
-    <div id="card" className="card" key={props.key}>
+    <div id="card" className="card">
       <div className="card-content">
         <h6>
           <b>{name}</b>
         </h6>
       </div>
 
-      <Link to={`/product/${props.key}`} key={props.key} state={props.product}>
+      <Link to={`/product/${props.id}`} state={props.product}>
         <div className="card-image" title="Click to view product">
           <img src={randomImage} alt={name} />
         </div>

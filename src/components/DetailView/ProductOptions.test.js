@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import ProductOptions from "./ProductOptions";
+import { ProductOptions } from "./ProductOptions";
 
 const ProductOptionsComponent = <ProductOptions />;
 

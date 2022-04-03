@@ -1,6 +1,6 @@
 import React from "react";
-import ProductCard from "../list_view/ProductCard";
-import ErrorBoundary from "../error_handling/ErrorBoundary";
+import ProductCard from "../ListView/ProductCard";
+import ErrorBoundary from "../ErrorHandling/ErrorBoundary";
 import data from "./../../store/reducers/Reducers";
 
 const ProductData = () => {
@@ -8,8 +8,8 @@ const ProductData = () => {
     <div className="box">
       {data &&
         data.items?.map((item) => (
-          <ErrorBoundary>
-            <ProductCard key={item.id} product={item} />
+          <ErrorBoundary key={item.id}>
+            <ProductCard id={item.id} product={item} />
           </ErrorBoundary>
         ))}
     </div>

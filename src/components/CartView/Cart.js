@@ -62,10 +62,12 @@ export default function Cart() {
                       <div className="cart-product">
                         <div>
                           <h5>{cartItem.name}</h5>
-                          <p>Color: {cartItem.color}</p>
-                          {cartItem.power > 0 && <p>Power: {cartItem.power}</p>}
-                          {cartItem.storage > 0 && (
-                            <p>Storage: {cartItem.storage}</p>
+                          <p>Color: {cartItem.color.value}</p>
+                          {cartItem.power.value > 0 && (
+                            <p>Power: {cartItem.power.value}</p>
+                          )}
+                          {cartItem.storage.value > 0 && (
+                            <p>Storage: {cartItem.storage.value}</p>
                           )}
                           <button
                             onClick={() => handleRemoveFromCart(cartItem)}

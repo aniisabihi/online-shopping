@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
-import ProductImages from "../app_data/ProductImages";
+import ProductImages from "../ProductData/ProductImages";
 import { ProductOptions } from "./ProductOptions";
-import ErrorBoundary from "../error_handling/ErrorBoundary";
+import ErrorBoundary from "../ErrorHandling/ErrorBoundary";
 import { ToastContainer } from "react-toastify";
 import ProductToCart from "./ProductToCart";
 
@@ -19,22 +19,6 @@ export default function ProductDetail() {
   const location = useLocation();
   const product = location.state;
   const { id, name, brand, weight, price, available, options } = product;
-
-  const updateColor = (c) => {
-    setColor(c.value);
-  };
-
-  const updatePower = (p) => {
-    setPower(p.value);
-  };
-
-  const updateStorage = (s) => {
-    setStorage(s.value);
-  };
-
-  const updateQuantity = (q) => {
-    setQuantity(q.value);
-  };
 
   return (
     <div className="detail-item">
@@ -107,10 +91,10 @@ export default function ProductDetail() {
             <ErrorBoundary>
               <ProductOptions
                 options={options}
-                updateColor={updateColor}
-                updatePower={updatePower}
-                updateStorage={updateStorage}
-                updateQuantity={updateQuantity}
+                setColor={setColor}
+                setPower={setPower}
+                setStorage={setStorage}
+                setQuantity={setQuantity}
               />
             </ErrorBoundary>
           </div>

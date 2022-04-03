@@ -14,15 +14,16 @@ export default function ProductToCart(props) {
   const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
-    if (
-      product.available &&
-      color !== "" &&
-      (power !== 0 || storage !== 0) &&
-      quantity !== 0
-    ) {
+    if (product.available && color !== "") {
       product.color = color;
+    }
+
+    if ((power !== 0 || storage !== 0) && quantity !== 0) {
       product.power = power;
       product.storage = storage;
+      product.quantity = quantity;
+      dispatch(addToCart(product));
+    } else if (quantity !== 0) {
       product.quantity = quantity;
       dispatch(addToCart(product));
     } else {

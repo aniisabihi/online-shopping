@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Select from "react-select";
 
 export const ProductOptions = (props) => {
-  let { updateColor, updatePower, updateStorage, updateQuantity } = props;
+  let { setColor, setPower, setStorage, setQuantity } = props;
   const productOptions = [];
   props.options.map((option) => productOptions.push(option));
 
@@ -18,7 +18,7 @@ export const ProductOptions = (props) => {
   const [quantityNumber, setQuantityNumber] = useState([]);
 
   function checkSubOptions(chosenColor) {
-    updateColorState(chosenColor);
+    setColor(chosenColor);
 
     setPowerOptions(
       productOptions
@@ -80,22 +80,6 @@ export const ProductOptions = (props) => {
     value: quantity,
   }));
 
-  function updateColorState(state) {
-    updateColor(state);
-  }
-
-  function updatePowerState(state) {
-    updatePower(state);
-  }
-
-  function updateStorageState(state) {
-    updateStorage(state);
-  }
-
-  function updateQuantityState(state) {
-    updateQuantity(state);
-  }
-
   return (
     <div>
       <div className="col">
@@ -106,14 +90,14 @@ export const ProductOptions = (props) => {
       {powerOptions.length > 0 && (
         <div className="col">
           <h6>Power:</h6>
-          <Select onChange={updatePowerState} options={powerOptions} />
+          <Select onChange={setPower} options={powerOptions} />
         </div>
       )}
 
       {storageOptions.length > 0 && (
         <div className="col">
           <h6>Storage:</h6>
-          <Select onChange={updateStorageState} options={storageOptions} />
+          <Select onChange={setStorage} options={storageOptions} />
         </div>
       )}
 
@@ -121,7 +105,7 @@ export const ProductOptions = (props) => {
         quantityOptions.length > 0 && (
           <div className="col">
             <h6>Quantity: </h6>
-            <Select onChange={updateQuantityState} options={quantityOptions} />
+            <Select onChange={setQuantity} options={quantityOptions} />
           </div>
         )}
     </div>
